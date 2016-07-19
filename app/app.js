@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ors-star', 'ngRoute']);
+	var app = angular.module('mainApp', ['ors-star', 'ngRoute', 'ors-ws']);
 	
 	app.config(['$routeProvider', function($routeProvider) {
 
