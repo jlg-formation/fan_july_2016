@@ -22,8 +22,12 @@
 			.then(function(response){
 				return $q.all([$http.get('../ws/s2'), $http.get('../ws/s3'), $http.get('../ws/s4')]);
 			})
-			.then(function(response){
-				return $http.get('../ws/s5');
+			.then(function(responses){
+				console.log('responses', responses);
+				if (responses[2].data.myProperty === 'valeur4') {
+					return $http.get('../ws/s5');
+				} 
+				return $http.get('../ws/s6');
 			})
 			.catch(function(error) {
 				console.error('Error : ', error);
