@@ -19,6 +19,7 @@
 	
 	app.run(['$rootScope', function($rootScope) {
 		$rootScope.myNote = 2;
+		$rootScope.showSpinner = false;
 	}]);
 
 	app.directive('orsHeader', function() {

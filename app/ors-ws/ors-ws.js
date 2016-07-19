@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('ors-ws', ['ngRoute']);
+	var app = angular.module('ors-ws', ['ngRoute', 'angularSpinner']);
 
 	app.config(['$routeProvider', function($routeProvider) {
 
@@ -18,7 +18,12 @@
 		console.log('coucou');
 		var $http = $injector.get('$http');
 		var $q = $injector.get('$q');
-		$http.get('../ws/s1')
+		var $rootScope = $injector.get('$rootScope');
+		$q.when('start')
+			.then(function() {
+				$rootScope.showSpinner = true;
+				return $http.get('../ws/s1')
+			})
 			.then(function(response){
 				return $q.all([$http.get('../ws/s2'), $http.get('../ws/s3'), $http.get('../ws/s4')]);
 			})
@@ -28,6 +33,9 @@
 					return $http.get('../ws/s5');
 				} 
 				return $http.get('../ws/s6');
+			})
+			.finally(function(){
+				$rootScope.showSpinner = false;
 			})
 			.catch(function(error) {
 				console.error('Error : ', error);
