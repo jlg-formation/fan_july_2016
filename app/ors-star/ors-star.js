@@ -15,10 +15,12 @@
 				};
 			
 				scope.$watch('n', function() {
+					console.log('orsStar', arguments);
 					var note = Number(scope.n);
 					note = isNaN(note) ? 4 : note;
 					note = (note > 5) ? 5 : note;
 					note = (note < 0) ? 0 : note;
+					console.log('note', note);
 					var html = '';
 					for (var i = 0; i < note; i++) {
 						html += '<img ng-click="update(' + (i + 1) + ')" src="ors-star/img/yellow_star.png" />';

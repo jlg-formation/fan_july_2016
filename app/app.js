@@ -1,7 +1,21 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ors-star']);
+	var app = angular.module('mainApp', ['ors-star', 'ngRoute']);
+	
+	app.config(['$routeProvider', function($routeProvider) {
+
+		$routeProvider
+			.when('/', {
+				templateUrl: 'tmpl/menu/home.html'
+			})
+			.when('/test', {
+				templateUrl: 'tmpl/menu/test.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+	}]);
 	
 	app.run(['$rootScope', function($rootScope) {
 		$rootScope.myNote = 2;
