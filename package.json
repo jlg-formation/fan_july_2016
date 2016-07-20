@@ -15,6 +15,10 @@
   "devDependencies": {
     "bower": "1.7.9",
     "express": "4.14.0",
+    "jasmine-core": "2.4.1",
+    "karma": "1.1.1",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-jasmine": "1.0.2",
     "serve-index": "1.8.0"
   }
 }

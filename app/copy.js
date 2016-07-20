@@ -14,16 +14,5 @@
 		return result;
 	};
 	
-	var a = {
-		x: {
-			y: 6
-		}
-	};
-	var b = clone(a);
-	console.log('a.x.y', a.x.y);
-	console.log('b.x.y', b.x.y);
-	b.x.y = 3;
-	console.log('a.x.y', a.x.y);
-	console.log('b.x.y', b.x.y);
-	
+	window.clone = clone;
 })();
