@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ors-star', 'ngRoute', 'ors-ws']);
+	var app = angular.module('mainApp', ['ors-star', 'ngRoute', 'ors-ws', 'ors-http']);
 	
 	app.config(['$routeProvider', function($routeProvider) {
 
@@ -17,9 +17,10 @@
 			});
 	}]);
 	
+	
 	app.run(['$rootScope', function($rootScope) {
 		$rootScope.myNote = 2;
-		$rootScope.showSpinner = false;
+		$rootScope.showSpinner = 0;
 	}]);
 
 	app.directive('orsHeader', function() {
