@@ -39,20 +39,6 @@
 					return config;
 				},
 
-				// optional method
-				requestError: function(rejection) {
-					console.log('rejection', rejection);
-					if (config.spinner == true) {
-						stopSpin();
-						delete config.spinner;
-					}
-					
-					// do something on error
-					
-					return $q.reject(rejection);
-				},
-
-
 
 				// optional method
 				response: function(response) {
@@ -69,10 +55,10 @@
 				// optional method
 				responseError: function(rejection) {
 					console.log('rejection', rejection);
-					/*if (config.spinner == true) {
+					if (rejection.config.spinner == true) {
 						stopSpin();
-						delete config.spinner;
-					}*/
+						delete rejection.config.spinner;
+					}
 
 					return $q.reject(rejection);
 				}
