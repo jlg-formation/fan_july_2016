@@ -21,7 +21,7 @@ module.exports = function(config) {
 		'bower_components/angular-spinner/angular-spinner.js',
 		'bower_components/angular-mocks/angular-mocks.js',
 		'app/**/*.js',
-		'test/**/*.js'
+		'test/unit/**/*.js'
     ],
 
 
